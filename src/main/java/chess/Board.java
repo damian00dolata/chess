@@ -1,8 +1,6 @@
 package chess;
 
 public class Board {
-    //Charset utf8Charset = Charset.forName("UTF-8");
-
     Piece [] [] board = new Piece[8][];
 
     Player current;
@@ -13,30 +11,30 @@ public class Board {
             board[i] = new Piece[8];
             for(int j=0; j<=7; j++) {
                 if(i == 1) {
-                    board[i][j] = new Piece(Player.white, i, j, TypeOfPiece.pawn);
+                    board[i][j] = new Piece(Player.black, i, j, TypeOfPiece.pawn);
                 }
                 if(i == 6) {
-                    board[i][j] = new Piece(Player.black, i, j, TypeOfPiece.pawn);
+                    board[i][j] = new Piece(Player.white, i, j, TypeOfPiece.pawn);
                 }
                 if(i == 0 || i == 7) {
                     switch(j) {
                         case 0:
                         case 7:
-                            board[i][j] = new Piece(i == 0?Player.white:Player.black, i, j, TypeOfPiece.rook);
+                            board[i][j] = new Piece(i == 0?Player.black:Player.white, i, j, TypeOfPiece.rook);
                             break;
                         case 1:
                         case 6:
-                            board[i][j] = new Piece(i == 0?Player.white:Player.black, i, j, TypeOfPiece.knight);
+                            board[i][j] = new Piece(i == 0?Player.black:Player.white, i, j, TypeOfPiece.knight);
                             break;
                         case 2:
                         case 5:
-                            board[i][j] = new Piece(i == 0?Player.white:Player.black, i, j, TypeOfPiece.bishop);
+                            board[i][j] = new Piece(i == 0?Player.black:Player.white, i, j, TypeOfPiece.bishop);
                             break;
                         case 3:
-                            board[i][j] = new Piece(i == 0?Player.white:Player.black, i, j, TypeOfPiece.queen);
+                            board[i][j] = new Piece(i == 0?Player.black:Player.white, i, j, TypeOfPiece.queen);
                             break;
                         case 4:
-                            board[i][j] = new Piece(i == 0?Player.white:Player.black, i, j, TypeOfPiece.king);
+                            board[i][j] = new Piece(i == 0?Player.black:Player.white, i, j, TypeOfPiece.king);
                             break;
                     }
                 }
@@ -68,6 +66,8 @@ public class Board {
                             break;
                     }
                 }
+                if(board[i][j] == null) System.out.print(Math.abs(i - j)%2 == 1 ? "\u2592" : "\u2591");
+                // the subtraction of coordinates is even, when the field is white
                 if(j == 7) System.out.println("");
             }
         }

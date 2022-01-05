@@ -2,7 +2,7 @@ package chess.piece;
 
 import chess.Player;
 
-public class Piece {
+public abstract class Piece {
     private String characterDisplay;
     private Player teamColor;
     private String displayName;

@@ -20,4 +20,13 @@ public final class PlayerTurn {
         }
         return instance;
     }
+
+    public static void endTurn() {
+        if(currentPlayer == Player.white) {
+            currentPlayer = Player.black;
+        }
+        else {
+            currentPlayer = Player.white;
+        }
+    }
 }

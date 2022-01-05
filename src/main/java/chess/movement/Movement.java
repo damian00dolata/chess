@@ -21,6 +21,8 @@ public class Movement {
                 board[originalPosX][originalPosY].setOccupied(false);
                 board[originalPosX][originalPosY].setOccupiedPieceReference(null);
                 SelectedPiece.setSelectedPiece(null);
+
+                PlayerTurn.endTurn();
             } else {
                 System.out.println("The field is occupied");
             }
@@ -31,6 +33,8 @@ public class Movement {
     }
 
     public static void selectPiece() {
+        // będziemy rozpoznawać jaka to jest klasa, a następnie będziemy badać dostępne ścieżki tej klasy i wyświetlać
+        // je na planszy
         var curPos = CursorPosition.getCurrentPos();
         var board = Fields.getFields();
         var testedCase = board[curPos.getX()][curPos.getY()];

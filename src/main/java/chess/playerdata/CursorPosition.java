@@ -16,14 +16,43 @@ public final class CursorPosition {
     }
 
     public static void moveCursor(Directions direction) {
+        boolean moved = false;
         var board = Fields.getFields();
         for(int i=0; i<=7; i++) {
             for(int j=0; j<=7; j++) {
                 if(board[i][j].isCursorAtField()) {
-                    if(direction == Directions.Right) {
-                        board[i][j+1].setCursorAtField(true);
-                        board[i][j].setCursorAtField(false);
+                    if(moved) {
                         break;
+                    }
+                    switch(direction) {
+                        case Right:
+                            if(board[i][j+1] != null) {
+                                board[i][j+1].setCursorAtField(true);
+                                board[i][j].setCursorAtField(false);
+                                moved = true;
+                            }
+                            break;
+                        case Left:
+                            if(board[i][j-1] != null) {
+                                board[i][j-1].setCursorAtField(true);
+                                board[i][j].setCursorAtField(false);
+                                moved = true;
+                            }
+                            break;
+                        case Up:
+                            if(board[i-1][j] != null) {
+                                board[i-1][j].setCursorAtField(true);
+                                board[i][j].setCursorAtField(false);
+                                moved = true;
+                            }
+                            break;
+                        case Down:
+                            if(board[i+1][j] != null) {
+                                board[i+1][j].setCursorAtField(true);
+                                board[i][j].setCursorAtField(false);
+                                moved = true;
+                            }
+                            break;
                     }
                 }
             }

@@ -2,11 +2,13 @@ package chess.board;
 
 import chess.Player;
 import chess.TypeOfPiece;
+import chess.piece.Piece;
 
 public class Field {
     private boolean occupied;
     private Player occupiedPlayerColor;
     private TypeOfPiece occupiedTypeOfPiece;
+    private Piece occupiedPieceReference;
     private boolean isCursorAtField;
     private String displayCharacter;
 
@@ -48,6 +50,14 @@ public class Field {
 
     public void setCursorAtField(boolean cursorAtField) {
         isCursorAtField = cursorAtField;
+    }
+
+    public Piece getOccupiedPieceReference() {
+        return  occupiedPieceReference;
+    }
+
+    public void setOccupiedPieceReference(Piece occupiedPieceReference) {
+        this.occupiedPieceReference = occupiedPieceReference;
     }
 
     public Field() {

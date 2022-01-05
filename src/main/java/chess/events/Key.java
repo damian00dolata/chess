@@ -1,7 +1,10 @@
 package chess.events;
 
+import chess.board.Fields;
 import chess.enums.Directions;
+import chess.movement.Movement;
 import chess.playerdata.CursorPosition;
+import chess.playerdata.SelectedPiece;
 import com.github.kwhat.jnativehook.GlobalScreen;
 import com.github.kwhat.jnativehook.NativeHookException;
 import com.github.kwhat.jnativehook.keyboard.NativeKeyEvent;
@@ -16,7 +19,7 @@ public class Key implements NativeKeyListener {
     @Override
     public void nativeKeyReleased(NativeKeyEvent nativeEvent) {
         NativeKeyListener.super.nativeKeyReleased(nativeEvent);
-        // System.out.println(nativeEvent.getKeyCode());
+        System.out.println(nativeEvent.getKeyCode());
         // 57419 - lewo
         // 57416 - góra
         // 57424 - dól
@@ -36,6 +39,12 @@ public class Key implements NativeKeyListener {
                 break;
             case 57421:
                 CursorPosition.moveCursor(Directions.Right);
+                break;
+            case NativeKeyEvent.VC_ENTER:
+                var board = Fields.getFields();
+                SelectedPiece.setSelectedPiece(board[6][0].getOccupiedPieceReference());
+                Movement.move(5, 0);
+                System.out.println(board[6][0].getOccupiedPieceReference().getY());
                 break;
         }
     }

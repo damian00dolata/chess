@@ -4,7 +4,7 @@ import chess.Player;
 
 public final class PlayerTurn {
     private static PlayerTurn instance;
-    private static Player currentPlayer;
+    private static Player currentPlayer = Player.white;
 
     public static Player getCurrentPlayer() {
         return currentPlayer;

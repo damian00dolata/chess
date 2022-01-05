@@ -6,13 +6,15 @@ public class Piece {
     private String characterDisplay;
     private Player teamColor;
     private String displayName;
+    private String id;
     private int x;
     private int y;
 
-    public Piece(String characterDisplay, String displayName, Player teamColor) {
+    public Piece(String characterDisplay, String displayName, Player teamColor, String id) {
         this.characterDisplay = characterDisplay;
         this.displayName = displayName;
         this.teamColor = teamColor;
+        this.id = id;
     }
 
     public int getX() {
@@ -53,5 +55,13 @@ public class Piece {
 
     public void setTeamColor(Player teamColor) {
         this.teamColor = teamColor;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 }

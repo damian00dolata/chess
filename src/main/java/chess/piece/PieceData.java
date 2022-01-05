@@ -10,9 +10,9 @@ public class PieceData {
         return pieceList;
     }
 
-    public static Piece getPieceFromListByItsName(String name) throws Exception {
+    public static Piece getPieceFromListByItsID(String name) throws Exception {
         for(short i=0; i<pieceList.size(); i++) {
-            if(pieceList.get(i).getDisplayName().equals(name)) {
+            if(pieceList.get(i).getId().equals(name)) {
                 return pieceList.get(i);
             }
         }

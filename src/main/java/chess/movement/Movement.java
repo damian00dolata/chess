@@ -2,32 +2,43 @@ package chess.movement;
 
 import chess.board.Fields;
 import chess.piece.PieceData;
+import chess.playerdata.CursorPosition;
+import chess.playerdata.PlayerTurn;
 import chess.playerdata.SelectedPiece;
 
 public class Movement {
     public static void move(int x, int y) {
         try {
             var board = Fields.getFields();
-            System.out.println("Selected piece x: " + SelectedPiece.getSelectedPiece().getX());
-            System.out.println("Selected piece y: " + SelectedPiece.getSelectedPiece().getY());
-            System.out.println("Selected piece name: " + SelectedPiece.getSelectedPiece().getDisplayName());
-            System.out.println("----------------");
+            var originalPosX = SelectedPiece.getSelectedPiece().getX();
+            var originalPosY = SelectedPiece.getSelectedPiece().getY();
             if (!board[x][y].isOccupied()) {
-                board[x][y].setOccupiedPieceReference(PieceData.getPieceFromListByItsName(SelectedPiece.getSelectedPiece().getDisplayName()));
-                board[x][y].getOccupiedPieceReference().setX(x);
-                board[x][y].getOccupiedPieceReference().setY(y);
+                board[x][y].setOccupiedPieceReference(SelectedPiece.getSelectedPiece());
                 board[x][y].setOccupied(true);
-                board[SelectedPiece.getSelectedPiece().getX()][SelectedPiece.getSelectedPiece().getY()].setOccupied(false);
-                board[SelectedPiece.getSelectedPiece().getX()][SelectedPiece.getSelectedPiece().getY()].setOccupiedPieceReference(null);
+                SelectedPiece.getSelectedPiece().setX(x);
+                SelectedPiece.getSelectedPiece().setY(y);
+
+                board[originalPosX][originalPosY].setOccupied(false);
+                board[originalPosX][originalPosY].setOccupiedPieceReference(null);
+                SelectedPiece.setSelectedPiece(null);
             } else {
                 System.out.println("The field is occupied");
             }
-            System.out.println("Selected piece x: " + SelectedPiece.getSelectedPiece().getX());
-            System.out.println("Selected piece y: " + SelectedPiece.getSelectedPiece().getY());
-            System.out.println("Selected piece name: " + SelectedPiece.getSelectedPiece().getDisplayName());
         }
         catch (Exception e) {
             e.printStackTrace();
+        }
+    }
+
+    public static void selectPiece() {
+        var curPos = CursorPosition.getCurrentPos();
+        var board = Fields.getFields();
+        var testedCase = board[curPos.getX()][curPos.getY()];
+
+        if(testedCase.isOccupied()) {
+            if(testedCase.getOccupiedPieceReference().getTeamColor() == PlayerTurn.getCurrentPlayer()) {
+                SelectedPiece.setSelectedPiece(testedCase.getOccupiedPieceReference());
+            }
         }
     }
 }

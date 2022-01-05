@@ -41,10 +41,11 @@ public class Key implements NativeKeyListener {
                 CursorPosition.moveCursor(Directions.Right);
                 break;
             case NativeKeyEvent.VC_ENTER:
-                var board = Fields.getFields();
-                SelectedPiece.setSelectedPiece(board[6][0].getOccupiedPieceReference());
-                Movement.move(5, 0);
-                System.out.println(board[6][0].getOccupiedPieceReference().getY());
+                if(SelectedPiece.getSelectedPiece() == null) {
+                    Movement.selectPiece();
+                } else {
+                    Movement.move(CursorPosition.getCurrentPos().getX(), CursorPosition.getCurrentPos().getY());
+                }
                 break;
         }
     }

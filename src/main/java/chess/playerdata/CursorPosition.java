@@ -2,17 +2,23 @@ package chess.playerdata;
 
 import chess.board.Fields;
 import chess.enums.Directions;
+import math.Vector2i;
 
 public final class CursorPosition {
     private static CursorPosition instance;
-    private static int [] [] currentPos = new int[8][];
+    private static Vector2i currentPos = new Vector2i(0,0);
 
-    public static int[][] getCurrentPos() {
+    public static Vector2i getCurrentPos() {
+        var board = Fields.getFields();
+        for(int i=0; i<=7; i++) {
+            for(int j=0; j<=7; j++) {
+                if(board[i][j].isCursorAtField()) {
+                    currentPos = new Vector2i(i,j);
+                    break;
+                }
+            }
+        }
         return currentPos;
-    }
-
-    public static void setCurrentPos(int[][] position) {
-        currentPos = position;
     }
 
     public static void moveCursor(Directions direction) {

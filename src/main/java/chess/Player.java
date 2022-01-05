@@ -2,5 +2,6 @@ package chess;
 
 public enum Player {
     black,
-    white;
+    white,
+    none;
 }

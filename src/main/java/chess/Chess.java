@@ -11,7 +11,7 @@ import chess.events.Key;
 
 public class Chess {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         try {
             GlobalScreen.registerNativeHook();
         } catch (NativeHookException ex) {
@@ -26,8 +26,9 @@ public class Chess {
         Renderer renderer = new Renderer();
 
         while(true) {
-            // renderer.clear();
+            renderer.clear();
             renderer.draw();
+            Thread.sleep(2000);
         }
         // Board board = new Board(Player.white);
     }

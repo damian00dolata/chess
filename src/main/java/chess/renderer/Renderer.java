@@ -1,28 +1,34 @@
 package chess.renderer;
 
 import chess.Piece;
+import chess.board.Field;
+import chess.board.Fields;
 import chess.playerdata.CursorPosition;
 
 import java.io.IOException;
 
 public class Renderer {
     private String cursorImg = "\u2654";
-    private Piece[][] board = new Piece[8][];
 
     public Renderer() {
-        for(int i=0; i<=7; i++) {
-            board[i] = new Piece[8];
-        }
         CursorPosition.getInstance();
+        var board = Fields.getFields();
+
+        board[0][0].setCursorAtField(true);
     }
 
     public void draw() {
+        var board = Fields.getFields();
         for(int i=0; i<=7; i++) {
             for(int j=0; j<=7; j++) {
-                if(board[i][j] != null) {
-                    System.out.print("\u2657");
+                if(!board[i][j].isCursorAtField()) {
+                    System.out.print(board[i][j].getDisplayCharacter());
+                } else {
+                    System.out.print("\u2656");
                 }
+
             }
+            System.out.println("");
         }
     }
 

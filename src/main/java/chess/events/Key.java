@@ -47,6 +47,8 @@ public class Key implements NativeKeyListener {
                     Movement.move(CursorPosition.getCurrentPos().getX(), CursorPosition.getCurrentPos().getY());
                 }
                 break;
+            case NativeKeyEvent.VC_ALT:
+                SelectedPiece.setSelectedPiece(null);
         }
     }
 

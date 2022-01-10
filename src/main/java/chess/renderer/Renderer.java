@@ -5,6 +5,7 @@ import chess.board.Fields;
 import chess.piece.*;
 import chess.playerdata.CursorPosition;
 import chess.playerdata.PlayerTurn;
+import chess.playerdata.PossibleMoves;
 import chess.playerdata.SelectedPiece;
 
 public class Renderer {
@@ -172,6 +173,7 @@ public class Renderer {
         }
         System.out.println("Current player: " + PlayerTurn.getCurrentPlayer());
         if(SelectedPiece.getSelectedPiece() != null) System.out.println("Current class: " + SelectedPiece.getSelectedPiece().getClass());
+        System.out.println("Possible moves: " + PossibleMoves.getPossiblePositions().size());
     }
 
     public void clear() {

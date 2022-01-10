@@ -1,9 +1,12 @@
 package chess.movement;
 
 import chess.board.Fields;
+import chess.piece.King;
+import chess.piece.Pawn;
 import chess.piece.PieceData;
 import chess.playerdata.CursorPosition;
 import chess.playerdata.PlayerTurn;
+import chess.playerdata.PossibleMoves;
 import chess.playerdata.SelectedPiece;
 
 public class Movement {
@@ -21,6 +24,7 @@ public class Movement {
                 board[originalPosX][originalPosY].setOccupied(false);
                 board[originalPosX][originalPosY].setOccupiedPieceReference(null);
                 SelectedPiece.setSelectedPiece(null);
+                PossibleMoves.clearPossiblePositions();
 
                 PlayerTurn.endTurn();
             } else {
@@ -42,6 +46,19 @@ public class Movement {
         if(testedCase.isOccupied()) {
             if(testedCase.getOccupiedPieceReference().getTeamColor() == PlayerTurn.getCurrentPlayer()) {
                 SelectedPiece.setSelectedPiece(testedCase.getOccupiedPieceReference());
+                try {
+                    if(SelectedPiece.getSelectedPiece().getClass() == King.class) {
+                        var king = (King)SelectedPiece.getSelectedPiece();
+                        king.getPossiblePaths();
+                    }
+                    if(SelectedPiece.getSelectedPiece().getClass() == Pawn.class) {
+                        var pawn = (Pawn)SelectedPiece.getSelectedPiece();
+                        pawn.getPossiblePaths();
+                    }
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                    System.exit(1);
+                }
             }
         }
     }

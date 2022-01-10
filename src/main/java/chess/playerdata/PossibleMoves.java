@@ -33,8 +33,8 @@ public final class PossibleMoves {
         var board = Fields.getFields();
 
         // check if figure is not in corner for example
-        if(j > 7 || i > 7) {
-            return false;
+        if(j > 7 || i > 7 || j < 0 || i < 0) {
+            return true;
         }
         if(board[i][j] != null) {
             if(board[i][j].isOccupied()) {

@@ -58,4 +58,15 @@ public final class PossibleMoves {
         }
         return false;
     }
+
+    public static boolean canIGoThere(int x, int y) {
+        // mimo ze jest to duplikacja powyzszej funkcji lepiej zostawic ta implementacje osobna
+        // gdbyby trzeba bylo zmienic cos tylko przy rendererze albo przy movemencie
+        for(int i=0; i<possiblePositions.size(); i++) {
+            if(x == possiblePositions.get(i).getX() && y == possiblePositions.get(i).getY()) {
+                return true;
+            }
+        }
+        return false;
+    }
 }

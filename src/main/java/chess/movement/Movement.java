@@ -1,6 +1,7 @@
 package chess.movement;
 
 import chess.board.Fields;
+import chess.piece.IPiece;
 import chess.piece.King;
 import chess.piece.Pawn;
 import chess.piece.PieceData;
@@ -15,7 +16,7 @@ public class Movement {
             var board = Fields.getFields();
             var originalPosX = SelectedPiece.getSelectedPiece().getX();
             var originalPosY = SelectedPiece.getSelectedPiece().getY();
-            if (!board[x][y].isOccupied()) {
+            if (!board[x][y].isOccupied() && PossibleMoves.canIGoThere(x,y)) {
                 board[x][y].setOccupiedPieceReference(SelectedPiece.getSelectedPiece());
                 board[x][y].setOccupied(true);
                 SelectedPiece.getSelectedPiece().setX(x);
@@ -28,7 +29,7 @@ public class Movement {
 
                 PlayerTurn.endTurn();
             } else {
-                System.out.println("The field is occupied");
+                System.out.println("The field is occupied or you are unable to move here.");
             }
         }
         catch (Exception e) {
@@ -47,14 +48,8 @@ public class Movement {
             if(testedCase.getOccupiedPieceReference().getTeamColor() == PlayerTurn.getCurrentPlayer()) {
                 SelectedPiece.setSelectedPiece(testedCase.getOccupiedPieceReference());
                 try {
-                    if(SelectedPiece.getSelectedPiece().getClass() == King.class) {
-                        var king = (King)SelectedPiece.getSelectedPiece();
-                        king.getPossiblePaths();
-                    }
-                    if(SelectedPiece.getSelectedPiece().getClass() == Pawn.class) {
-                        var pawn = (Pawn)SelectedPiece.getSelectedPiece();
-                        pawn.getPossiblePaths();
-                    }
+                    var figure = (IPiece)SelectedPiece.getSelectedPiece();
+                    figure.getPossiblePaths();
                 } catch (Exception ex) {
                     ex.printStackTrace();
                     System.exit(1);

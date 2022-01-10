@@ -4,6 +4,7 @@ import chess.board.Fields;
 import chess.enums.Directions;
 import chess.movement.Movement;
 import chess.playerdata.CursorPosition;
+import chess.playerdata.PossibleMoves;
 import chess.playerdata.SelectedPiece;
 import com.github.kwhat.jnativehook.GlobalScreen;
 import com.github.kwhat.jnativehook.NativeHookException;
@@ -47,8 +48,10 @@ public class Key implements NativeKeyListener {
                     Movement.move(CursorPosition.getCurrentPos().getX(), CursorPosition.getCurrentPos().getY());
                 }
                 break;
-            case NativeKeyEvent.VC_ALT:
+            case NativeKeyEvent.VC_SHIFT:
                 SelectedPiece.setSelectedPiece(null);
+                PossibleMoves.clearPossiblePositions();
+                break;
         }
     }
 

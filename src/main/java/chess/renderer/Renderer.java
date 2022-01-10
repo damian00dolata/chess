@@ -156,11 +156,15 @@ public class Renderer {
         var board = Fields.getFields();
         for(int i=0; i<=7; i++) {
             for(int j=0; j<=7; j++) {
+                if(PossibleMoves.isPositionMatchWithDraw(i,j)) {
+                    // draw possible movements
+                    System.out.print("\033[0;104m"+"P"+"\033[0m");
+                } else {
                     if(board[i][j].isOccupied()) {
                         System.out.print(
                                 board[i][j].isCursorAtField() ?
-                                "\033[0;104m" + board[i][j].getOccupiedPieceReference().getCharacterDisplay() + "\033[0m" :
-                                board[i][j].getOccupiedPieceReference().getCharacterDisplay()
+                                        "\033[0;104m" + board[i][j].getOccupiedPieceReference().getCharacterDisplay() + "\033[0m" :
+                                        board[i][j].getOccupiedPieceReference().getCharacterDisplay()
                         );
                     } else {
                         System.out.print(board[i][j].isCursorAtField() ?
@@ -168,6 +172,8 @@ public class Renderer {
                                 board[i][j].getDisplayCharacter()
                         );
                     }
+                }
+
                 }
             System.out.println("");
         }

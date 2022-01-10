@@ -46,4 +46,16 @@ public final class PossibleMoves {
             return true;
         }
     }
+
+    public static boolean isPositionMatchWithDraw(int i, int j) {
+        if(PossibleMoves.getPossiblePositions().size() > 0) {
+            // get the match position on board according to i j
+            for(int x=0; x<possiblePositions.size(); x++) {
+                if(possiblePositions.get(x).getX() == i && possiblePositions.get(x).getY() == j) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 }

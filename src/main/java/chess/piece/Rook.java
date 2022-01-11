@@ -34,7 +34,7 @@ public class Rook extends Piece implements IPiece{
         }
 
         // w prawo
-        for(int y=j+1; j<=7; j++) {
+        for(int y=j+1; y<=7; y++) {
             if(!PossibleMoves.checkColliders(i, y)) {
                 PossibleMoves.addPossiblePosition(i,y);
             } else {
@@ -43,14 +43,13 @@ public class Rook extends Piece implements IPiece{
         }
 
         // w lewo
-        for(int y=j-1; j>=0; j--) {
+        for(int y=j-1; y>=0; y--) {
             if(!PossibleMoves.checkColliders(i, y)) {
                 PossibleMoves.addPossiblePosition(i,y);
             } else {
                 break;
             }
         }
-
     }
 
     @Override

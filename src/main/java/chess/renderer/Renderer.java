@@ -158,7 +158,7 @@ public class Renderer {
             for(int j=0; j<=7; j++) {
                 if(PossibleMoves.isPositionMatchWithDraw(i,j)) {
                     // draw possible movements
-                    System.out.print("\033[0;104m"+"P"+"\033[0m");
+                    System.out.print("\033[0;102m"+"P"+"\033[0m");
                 } else {
                     if(board[i][j].isOccupied()) {
                         System.out.print(

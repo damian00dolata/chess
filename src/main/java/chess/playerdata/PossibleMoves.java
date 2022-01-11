@@ -36,6 +36,7 @@ public final class PossibleMoves {
         if(j > 7 || i > 7 || j < 0 || i < 0) {
             return true;
         }
+
         if(board[i][j] != null) {
             if(board[i][j].isOccupied()) {
                 return true;

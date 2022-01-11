@@ -7,6 +7,8 @@ import chess.playerdata.PossibleMoves;
 import chess.playerdata.SelectedPiece;
 
 public class Pawn extends Piece implements IPiece {
+    private boolean firstMove = true;
+
     public Pawn(String characterDisplay, String displayName, Player teamColor, String id) {
         super(characterDisplay, displayName, teamColor, id);
     }
@@ -18,13 +20,32 @@ public class Pawn extends Piece implements IPiece {
 
         if(PlayerTurn.getCurrentPlayer() == Player.white) {
             // sprawdzam tylko pole przed pionem
-            if(!PossibleMoves.checkColliders(i+1, j)) {
-                PossibleMoves.addPossiblePosition(i+1, j);
+            if(firstMove) {
+                if (!PossibleMoves.checkColliders(i + 1, j)) {
+                    PossibleMoves.addPossiblePosition(i + 1, j);
+                    if (!PossibleMoves.checkColliders(i + 2, j)) {
+                        PossibleMoves.addPossiblePosition(i + 2, j);
+                    }
+                }
             }
-
+                else {
+                    if (!PossibleMoves.checkColliders(i + 1, j)) {
+                        PossibleMoves.addPossiblePosition(i + 1, j);
+                    }
+                }
         } else {
-            if(!PossibleMoves.checkColliders(i-1, j)) {
-                PossibleMoves.addPossiblePosition(i-1, j);
+            if(firstMove) {
+                if (!PossibleMoves.checkColliders(i - 1, j)) {
+                    PossibleMoves.addPossiblePosition(i - 1, j);
+                    if (!PossibleMoves.checkColliders(i - 2, j)) {
+                        PossibleMoves.addPossiblePosition(i - 2, j);
+                    }
+                }
+            }
+            else {
+                if (!PossibleMoves.checkColliders(i - 1, j)) {
+                    PossibleMoves.addPossiblePosition(i - 1, j);
+                }
             }
         }
     }
@@ -34,5 +55,11 @@ public class Pawn extends Piece implements IPiece {
 
     }
 
-    // getPossibleCaptures()
+    public boolean isFirstMove() {
+        return firstMove;
+    }
+
+    public void setFirstMove(boolean firstMove) {
+        this.firstMove = firstMove;
+    }
 }

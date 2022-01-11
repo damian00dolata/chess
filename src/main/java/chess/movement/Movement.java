@@ -22,6 +22,11 @@ public class Movement {
                 SelectedPiece.getSelectedPiece().setX(x);
                 SelectedPiece.getSelectedPiece().setY(y);
 
+                if(SelectedPiece.getSelectedPiece().getClass() == Pawn.class) {
+                    var pawn = (Pawn)SelectedPiece.getSelectedPiece();
+                    pawn.setFirstMove(false);
+                }
+
                 board[originalPosX][originalPosY].setOccupied(false);
                 board[originalPosX][originalPosY].setOccupiedPieceReference(null);
                 SelectedPiece.setSelectedPiece(null);

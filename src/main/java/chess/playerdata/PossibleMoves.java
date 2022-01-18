@@ -69,6 +69,24 @@ public final class PossibleMoves {
         }
     }
 
+    public static boolean checkCaptures(int i, int j) {
+        var board = Fields.getFields();
+
+        if(j > 7 || i > 7 || j < 0 || i < 0) {
+            return false;
+        }
+
+        if(board[i][j] != null) {
+            if(board[i][j].isOccupied() && board[i][j].getOccupiedPieceReference().getTeamColor() != PlayerTurn.getCurrentPlayer()) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
+    }
+
     public static boolean isPositionMatchWithDraw(int i, int j) {
         if(PossibleMoves.getPossiblePositions().size() > 0) {
             // get the match position on board according to i j

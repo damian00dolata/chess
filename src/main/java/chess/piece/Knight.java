@@ -76,4 +76,9 @@ public class Knight extends Piece implements  IPiece {
     public void getPossibleCaptures() {
 
     }
+
+    @Override
+    public void deleteSelf() {
+        PieceData.RemovePieceFromListByItsId(this.getId());
+    }
 }

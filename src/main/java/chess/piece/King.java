@@ -29,7 +29,7 @@ public class King extends Piece implements IPiece {
     }
 
     @Override
-    public void deleteSelf(String id) {
+    public void deleteSelf() {
         PieceData.RemovePieceFromListByItsId(this.getId());
     }
 }

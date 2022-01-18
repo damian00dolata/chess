@@ -156,21 +156,25 @@ public class Renderer {
         var board = Fields.getFields();
         for(int i=0; i<=7; i++) {
             for(int j=0; j<=7; j++) {
-                if(PossibleMoves.isPositionMatchWithDraw(i,j)) {
-                    // draw possible movements
-                    System.out.print("\033[0;102m"+"P"+"\033[0m");
+                if(PossibleMoves.canICapThis(i,j)) {
+                    System.out.print("\033[0;101m" + "C" + "\033[0m");
                 } else {
-                    if(board[i][j].isOccupied()) {
-                        System.out.print(
-                                board[i][j].isCursorAtField() ?
-                                        "\033[0;104m" + board[i][j].getOccupiedPieceReference().getCharacterDisplay() + "\033[0m" :
-                                        board[i][j].getOccupiedPieceReference().getCharacterDisplay()
-                        );
+                    if (PossibleMoves.isPositionMatchWithDraw(i, j)) {
+                        // draw possible movements
+                        System.out.print("\033[0;102m" + "P" + "\033[0m");
                     } else {
-                        System.out.print(board[i][j].isCursorAtField() ?
-                                "\033[0;104m" + board[i][j].getDisplayCharacter() + "\033[0m" :
-                                board[i][j].getDisplayCharacter()
-                        );
+                        if (board[i][j].isOccupied()) {
+                            System.out.print(
+                                    board[i][j].isCursorAtField() ?
+                                            "\033[0;104m" + board[i][j].getOccupiedPieceReference().getCharacterDisplay() + "\033[0m" :
+                                            board[i][j].getOccupiedPieceReference().getCharacterDisplay()
+                            );
+                        } else {
+                            System.out.print(board[i][j].isCursorAtField() ?
+                                    "\033[0;104m" + board[i][j].getDisplayCharacter() + "\033[0m" :
+                                    board[i][j].getDisplayCharacter()
+                            );
+                        }
                     }
                 }
 
@@ -180,6 +184,7 @@ public class Renderer {
         System.out.println("Current player: " + PlayerTurn.getCurrentPlayer());
         if(SelectedPiece.getSelectedPiece() != null) System.out.println("Current class: " + SelectedPiece.getSelectedPiece().getClass());
         System.out.println("Possible moves: " + PossibleMoves.getPossiblePositions().size());
+        System.out.println("Possible captures: " + PossibleMoves.getPossibleCaptures().size());
     }
 
     public void clear() {

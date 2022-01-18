@@ -90,6 +90,7 @@ public class Movement {
                 try {
                     var figure = (IPiece)SelectedPiece.getSelectedPiece();
                     figure.getPossiblePaths();
+                    figure.getPossibleCaptures();
                 } catch (Exception ex) {
                     ex.printStackTrace();
                     System.exit(1);

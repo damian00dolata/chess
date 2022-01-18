@@ -62,4 +62,9 @@ public class Pawn extends Piece implements IPiece {
     public void setFirstMove(boolean firstMove) {
         this.firstMove = firstMove;
     }
+
+    @Override
+    public void deleteSelf() {
+        PieceData.RemovePieceFromListByItsId(this.getId());
+    }
 }

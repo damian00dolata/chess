@@ -17,7 +17,7 @@ public abstract class Piece {
         this.id = id;
     }
 
-    public abstract void deleteSelf(String id);
+    public abstract void deleteSelf();
 
     public int getX() {
         return x;

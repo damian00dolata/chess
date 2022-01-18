@@ -30,6 +30,8 @@ public class Movement {
                 board[originalPosX][originalPosY].setOccupied(false);
                 board[originalPosX][originalPosY].setOccupiedPieceReference(null);
                 SelectedPiece.setSelectedPiece(null);
+
+                PossibleMoves.clearPossibleCaptures();
                 PossibleMoves.clearPossiblePositions();
 
                 PlayerTurn.endTurn();
@@ -38,6 +40,39 @@ public class Movement {
             }
         }
         catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void capture(int x, int y) {
+        try {
+            var board = Fields.getFields();
+            var originalPosX = SelectedPiece.getSelectedPiece().getX();
+            var originalPosY = SelectedPiece.getSelectedPiece().getY();
+
+            if(board[x][y].isOccupied() && PossibleMoves.canICapThis(x,y)) {
+                var piece = (IPiece)board[x][y].getOccupiedPieceReference();
+                piece.deleteSelf();
+
+                board[x][y].setOccupiedPieceReference(SelectedPiece.getSelectedPiece());
+                SelectedPiece.getSelectedPiece().setX(x);
+                SelectedPiece.getSelectedPiece().setY(y);
+
+                if(SelectedPiece.getSelectedPiece().getClass() == Pawn.class) {
+                    var pawn = (Pawn)SelectedPiece.getSelectedPiece();
+                    pawn.setFirstMove(false);
+                }
+
+                board[originalPosX][originalPosY].setOccupied(false);
+                board[originalPosX][originalPosY].setOccupiedPieceReference(null);
+                SelectedPiece.setSelectedPiece(null);
+
+                PossibleMoves.clearPossibleCaptures();
+                PossibleMoves.clearPossiblePositions();
+
+                PlayerTurn.endTurn();
+            }
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

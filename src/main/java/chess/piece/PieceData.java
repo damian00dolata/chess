@@ -10,13 +10,21 @@ public class PieceData {
         return pieceList;
     }
 
-    public static Piece getPieceFromListByItsID(String name) throws Exception {
+    public static Piece getPieceFromListByItsID(String id) throws Exception {
         for(short i=0; i<pieceList.size(); i++) {
-            if(pieceList.get(i).getId().equals(name)) {
+            if(pieceList.get(i).getId().equals(id)) {
                 return pieceList.get(i);
             }
         }
         throw new Exception("Piece not found!");
+    }
+
+    public static void RemovePieceFromListByItsId(String id) {
+        for(short i=0; i< pieceList.size(); i++) {
+            if(pieceList.get(i).getId().equals(id)) {
+                pieceList.remove(i);
+            }
+        }
     }
 
     public static void setPieceList(List<Piece> newList) {

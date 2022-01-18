@@ -1,13 +1,9 @@
 package chess.board;
 
-import chess.Player;
-import chess.TypeOfPiece;
 import chess.piece.Piece;
 
 public class Field {
     private boolean occupied;
-    private Player occupiedPlayerColor;
-    private TypeOfPiece occupiedTypeOfPiece;
     private Piece occupiedPieceReference;
     private boolean isCursorAtField;
     private String displayCharacter;
@@ -28,22 +24,6 @@ public class Field {
         this.occupied = occupied;
     }
 
-    public Player getOccupiedPlayerColor() {
-        return occupiedPlayerColor;
-    }
-
-    public void setOccupiedPlayerColor(Player occupiedPlayerColor) {
-        this.occupiedPlayerColor = occupiedPlayerColor;
-    }
-
-    public TypeOfPiece getOccupiedTypeOfPiece() {
-        return occupiedTypeOfPiece;
-    }
-
-    public void setOccupiedTypeOfPiece(TypeOfPiece occupiedTypeOfPiece) {
-        this.occupiedTypeOfPiece = occupiedTypeOfPiece;
-    }
-
     public boolean isCursorAtField() {
         return isCursorAtField;
     }
@@ -62,8 +42,6 @@ public class Field {
 
     public Field() {
         occupied = false;
-        occupiedPlayerColor = Player.none;
-        occupiedTypeOfPiece = TypeOfPiece.none;
         isCursorAtField = false;
     }
 }

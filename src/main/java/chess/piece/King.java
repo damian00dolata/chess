@@ -4,7 +4,7 @@ import chess.Player;
 import chess.playerdata.PossibleMoves;
 import chess.playerdata.SelectedPiece;
 
-public class King extends Piece implements IPiece{
+public class King extends Piece implements IPiece {
     public King(String characterDisplay, String displayName, Player teamColor, String id) {
         super(characterDisplay, displayName, teamColor, id);
     }
@@ -28,5 +28,8 @@ public class King extends Piece implements IPiece{
 
     }
 
-
+    @Override
+    public void deleteSelf(String id) {
+        PieceData.RemovePieceFromListByItsId(this.getId());
+    }
 }

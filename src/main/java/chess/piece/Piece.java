@@ -17,6 +17,8 @@ public abstract class Piece {
         this.id = id;
     }
 
+    public abstract void deleteSelf(String id);
+
     public int getX() {
         return x;
     }
@@ -35,10 +37,6 @@ public abstract class Piece {
 
     public String getCharacterDisplay() {
         return characterDisplay;
-    }
-
-    public String getDisplayName() {
-        return displayName;
     }
 
     public Player getTeamColor() {

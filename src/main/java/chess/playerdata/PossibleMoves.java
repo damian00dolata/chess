@@ -8,6 +8,7 @@ import java.util.List;
 
 public final class PossibleMoves {
     private static List<Vector2i> possiblePositions = new ArrayList<Vector2i>();
+    private static List<Vector2i> possibleCaptures = new ArrayList<Vector2i>();
 
     public static void addPossiblePosition(int i, int j) {
         boolean newPos = true;
@@ -21,12 +22,32 @@ public final class PossibleMoves {
         }
     }
 
+    public static void addPossibleCapture(int i, int j) {
+        boolean newCap = true;
+        for(int x=0; x<possibleCaptures.size(); x++) {
+            if(possibleCaptures.get(x).getX() == i && possibleCaptures.get(x).getY() == j) {
+                newCap = false;
+            }
+        }
+        if(newCap) {
+            possibleCaptures.add(new Vector2i(i,j));
+        }
+    }
+
     public static List<Vector2i> getPossiblePositions() {
         return  possiblePositions;
     }
 
+    public static List<Vector2i> getPossibleCaptures() {
+        return possibleCaptures;
+    }
+
     public static void clearPossiblePositions() {
         possiblePositions.clear();
+    }
+
+    public static void clearPossibleCaptures() {
+        possibleCaptures.clear();
     }
 
     public static boolean checkColliders(int i, int j) {
@@ -65,6 +86,15 @@ public final class PossibleMoves {
         // gdbyby trzeba bylo zmienic cos tylko przy rendererze albo przy movemencie
         for(int i=0; i<possiblePositions.size(); i++) {
             if(x == possiblePositions.get(i).getX() && y == possiblePositions.get(i).getY()) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static boolean canICapThis(int x, int y) {
+        for(int i=0; i<possibleCaptures.size(); i++) {
+            if(x == possibleCaptures.get(i).getX() && y == possibleCaptures.get(i).getY()) {
                 return true;
             }
         }

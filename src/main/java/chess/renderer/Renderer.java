@@ -8,6 +8,8 @@ import chess.playerdata.PlayerTurn;
 import chess.playerdata.PossibleMoves;
 import chess.playerdata.SelectedPiece;
 
+import java.awt.*;
+
 public class Renderer {
     private String cursorImg = "\u2654";
 
@@ -185,6 +187,28 @@ public class Renderer {
         if(SelectedPiece.getSelectedPiece() != null) System.out.println("Current class: " + SelectedPiece.getSelectedPiece().getClass());
         System.out.println("Possible moves: " + PossibleMoves.getPossiblePositions().size());
         System.out.println("Possible captures: " + PossibleMoves.getPossibleCaptures().size());
+    }
+
+    public void drawList() {
+        for(short i=0; i<PieceData.getPieceList().size(); i++) {
+            var piece = PieceData.getPieceList().get(i);
+            System.out.print(piece.getId());
+            System.out.print(", ");
+            System.out.print(piece.getCharacterDisplay());
+            System.out.print(", ");
+            System.out.print(piece.getTeamColor());
+            System.out.print(", ");
+            System.out.print(piece.getX());
+            System.out.print(", ");
+            System.out.print(piece.getY());
+            System.out.print(", ");
+            System.out.print(piece.getClass());
+            System.out.print(", ");
+            System.out.print(i);
+            System.out.print(", ");
+            System.out.print(PieceData.getPieceList().size());
+            System.out.println();
+        }
     }
 
     public void clear() {

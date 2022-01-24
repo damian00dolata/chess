@@ -4,6 +4,7 @@ import chess.events.Mouse;
 import chess.movement.Movement;
 import chess.piece.Piece;
 import chess.piece.PieceData;
+import chess.playerdata.DisplayContent;
 import chess.playerdata.SelectedPiece;
 import chess.renderer.Renderer;
 import com.github.kwhat.jnativehook.GlobalScreen;
@@ -35,7 +36,14 @@ public class Chess {
 
         while(true) {
             renderer.clear();
-            renderer.draw();
+            switch (DisplayContent.GetRendererDisplayType()) {
+                case Chess:
+                    renderer.draw();
+                    break;
+                case List:
+                    renderer.drawList();
+                    break;
+            }
             Thread.sleep(1000);
         }
 

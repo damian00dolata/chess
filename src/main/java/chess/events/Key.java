@@ -2,12 +2,15 @@ package chess.events;
 
 import chess.board.Fields;
 import chess.enums.Directions;
+import chess.enums.RendererDisplayType;
 import chess.movement.Movement;
 import chess.playerdata.CursorPosition;
+import chess.playerdata.DisplayContent;
 import chess.playerdata.PossibleMoves;
 import chess.playerdata.SelectedPiece;
 import com.github.kwhat.jnativehook.GlobalScreen;
 import com.github.kwhat.jnativehook.NativeHookException;
+import com.github.kwhat.jnativehook.NativeInputEvent;
 import com.github.kwhat.jnativehook.keyboard.NativeKeyEvent;
 import com.github.kwhat.jnativehook.keyboard.NativeKeyListener;
 
@@ -51,6 +54,12 @@ public class Key implements NativeKeyListener {
             case NativeKeyEvent.VC_SHIFT:
                 SelectedPiece.setSelectedPiece(null);
                 PossibleMoves.clearPossiblePositions();
+                break;
+            case NativeKeyEvent.VC_L:
+                DisplayContent.SetRendererDisplayType(RendererDisplayType.List);
+                break;
+            case NativeKeyEvent.VC_P:
+                DisplayContent.SetRendererDisplayType(RendererDisplayType.Chess);
                 break;
         }
     }

@@ -211,6 +211,20 @@ public class Renderer {
         }
     }
 
+    public void drawSearchEngine(String data) {
+        try {
+            var displayPiece = PieceData.getPieceFromListByItsName(data);
+            System.out.println(displayPiece);
+            System.out.println(displayPiece.getDisplayName());
+            System.out.println(displayPiece.getX());
+            System.out.println(displayPiece.getY());
+            System.out.println(displayPiece.getId());
+            System.out.println(displayPiece.getTeamColor());
+        } catch(Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+
     public void clear() {
         System.out.print("\033[H\033[2J");
         System.out.flush();

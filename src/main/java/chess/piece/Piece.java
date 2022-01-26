@@ -39,6 +39,10 @@ public abstract class Piece {
         return characterDisplay;
     }
 
+    public String getDisplayName() {
+        return displayName;
+    }
+
     public Player getTeamColor() {
         return teamColor;
     }

@@ -19,6 +19,15 @@ public class PieceData {
         throw new Exception("Piece not found!");
     }
 
+    public static Piece getPieceFromListByItsName(String name) throws Exception {
+        for(short i=0; i<pieceList.size(); i++) {
+            if(pieceList.get(i).getDisplayName().equals(name)) {
+                return pieceList.get(i);
+            }
+        }
+        throw new Exception("Piece not found!");
+    }
+
     public static void RemovePieceFromListByItsId(String id) {
         for(short i=0; i< pieceList.size(); i++) {
             if(pieceList.get(i).getId().equals(id)) {

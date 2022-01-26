@@ -14,6 +14,8 @@ import com.github.kwhat.jnativehook.keyboard.NativeKeyListener;
 
 import chess.events.Key;
 
+import java.util.Scanner;
+
 public class Chess {
 
     public static void main(String[] args) throws InterruptedException {
@@ -34,17 +36,26 @@ public class Chess {
            // System.out.println(PieceData.getPieceList().get(i).getDisplayName());
         //}
 
+        Scanner sc = new Scanner(System.in);
+
         while(true) {
-            renderer.clear();
             switch (DisplayContent.GetRendererDisplayType()) {
                 case Chess:
+                    renderer.clear();
                     renderer.draw();
+                    Thread.sleep(1000);
                     break;
                 case List:
+                    renderer.clear();
                     renderer.drawList();
+                    Thread.sleep(10000);
+                    break;
+                case Search:
+                    System.out.print("Pdoaj pion: ");
+                    String data = sc.nextLine();
+                    renderer.drawSearchEngine(data);
                     break;
             }
-            Thread.sleep(1000);
         }
 
         // Board board = new Board(Player.white);

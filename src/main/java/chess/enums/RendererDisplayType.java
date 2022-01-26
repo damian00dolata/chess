@@ -2,5 +2,6 @@ package chess.enums;
 
 public enum RendererDisplayType {
     Chess,
-    List
+    List,
+    Search
 }

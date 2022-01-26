@@ -23,11 +23,21 @@ public class Key implements NativeKeyListener {
     @Override
     public void nativeKeyReleased(NativeKeyEvent nativeEvent) {
         NativeKeyListener.super.nativeKeyReleased(nativeEvent);
-        System.out.println(nativeEvent.getKeyCode());
         // 57419 - lewo
         // 57416 - góra
         // 57424 - dól
         // 57421 - prawo
+
+
+
+        if(DisplayContent.GetRendererDisplayType() == RendererDisplayType.Search) {
+            if(nativeEvent.getKeyCode() == NativeKeyEvent.VC_ALT) {
+                DisplayContent.SetRendererDisplayType(RendererDisplayType.Chess);
+            }
+            return;
+        }
+
+
         switch (nativeEvent.getKeyCode()) {
             case NativeKeyEvent.VC_ESCAPE:
                 System.exit(0);
@@ -60,6 +70,9 @@ public class Key implements NativeKeyListener {
                 break;
             case NativeKeyEvent.VC_P:
                 DisplayContent.SetRendererDisplayType(RendererDisplayType.Chess);
+                break;
+            case NativeKeyEvent.VC_ALT:
+                DisplayContent.SetRendererDisplayType(RendererDisplayType.Search);
                 break;
         }
     }

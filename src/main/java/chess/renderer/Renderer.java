@@ -22,39 +22,39 @@ public class Renderer {
     }
 
     public void setup() {
-        PieceData.getPieceList().add(new King("\u2654", "White King", Player.white, "WK0"));
-        PieceData.getPieceList().add(new Queen("\u2655", "White Queen", Player.white, "WQ0"));
-        PieceData.getPieceList().add(new Rook("\u2656", "White Rook", Player.white, "WR0"));
-        PieceData.getPieceList().add(new Rook("\u2656", "White Rook", Player.white, "WR1"));
-        PieceData.getPieceList().add(new Bishop("\u2657", "White Bishop", Player.white, "WB0"));
-        PieceData.getPieceList().add(new Bishop("\u2657", "White Bishop", Player.white, "WB1"));
-        PieceData.getPieceList().add(new Knight("\u2658", "White Knight", Player.white, "WN0"));
-        PieceData.getPieceList().add(new Knight("\u2658", "White Knight", Player.white, "WN1"));
-        PieceData.getPieceList().add(new Pawn("\u2659", "White Pawn", Player.white, "WP0"));
-        PieceData.getPieceList().add(new Pawn("\u2659", "White Pawn", Player.white, "WP1"));
-        PieceData.getPieceList().add(new Pawn("\u2659", "White Pawn", Player.white, "WP2"));
-        PieceData.getPieceList().add(new Pawn("\u2659", "White Pawn", Player.white, "WP3"));
-        PieceData.getPieceList().add(new Pawn("\u2659", "White Pawn", Player.white, "WP4"));
-        PieceData.getPieceList().add(new Pawn("\u2659", "White Pawn", Player.white, "WP5"));
-        PieceData.getPieceList().add(new Pawn("\u2659", "White Pawn", Player.white, "WP6"));
-        PieceData.getPieceList().add(new Pawn("\u2659", "White Pawn", Player.white, "WP7"));
+        PieceData.getPieceList().add(new King("K", "White King", Player.white, "WK0")); // "\u2654"
+        PieceData.getPieceList().add(new Queen("Q", "White Queen", Player.white, "WQ0")); // "\u2655"
+        PieceData.getPieceList().add(new Rook("R", "White Rook", Player.white, "WR0")); // "\u2656"
+        PieceData.getPieceList().add(new Rook("R", "White Rook", Player.white, "WR1")); // "\u2656"
+        PieceData.getPieceList().add(new Bishop("B", "White Bishop", Player.white, "WB0")); // "\u2657"
+        PieceData.getPieceList().add(new Bishop("B", "White Bishop", Player.white, "WB1")); // "\u2657"
+        PieceData.getPieceList().add(new Knight("N", "White Knight", Player.white, "WN0")); // "\u2658"
+        PieceData.getPieceList().add(new Knight("N", "White Knight", Player.white, "WN1")); // "\u2658"
+        PieceData.getPieceList().add(new Pawn("P", "White Pawn", Player.white, "WP0")); // "\u2659"
+        PieceData.getPieceList().add(new Pawn("P", "White Pawn", Player.white, "WP1")); // "\u2659"
+        PieceData.getPieceList().add(new Pawn("P", "White Pawn", Player.white, "WP2")); // "\u2659"
+        PieceData.getPieceList().add(new Pawn("P", "White Pawn", Player.white, "WP3")); // "\u2659"
+        PieceData.getPieceList().add(new Pawn("P", "White Pawn", Player.white, "WP4")); // "\u2659"
+        PieceData.getPieceList().add(new Pawn("P", "White Pawn", Player.white, "WP5")); // "\u2659"
+        PieceData.getPieceList().add(new Pawn("P", "White Pawn", Player.white, "WP6")); // "\u2659"
+        PieceData.getPieceList().add(new Pawn("P", "White Pawn", Player.white, "WP7")); // "\u2659"
 
-        PieceData.getPieceList().add(new King("\u265A", "Black King", Player.black, "BK0"));
-        PieceData.getPieceList().add(new Queen("\u265B", "Black Queen", Player.black, "BQ0"));
-        PieceData.getPieceList().add(new Rook("\u265C", "Black Rook", Player.black, "BR0"));
-        PieceData.getPieceList().add(new Rook("\u265C", "Black Rook", Player.black, "BR1"));
-        PieceData.getPieceList().add(new Bishop("\u265D", "Black Bishop", Player.black, "BB0"));
-        PieceData.getPieceList().add(new Bishop("\u265D", "Black Bishop", Player.black, "BB1"));
-        PieceData.getPieceList().add(new Knight("\u265E", "Black Knight", Player.black, "BN0"));
-        PieceData.getPieceList().add(new Knight("\u265E", "Black Knight", Player.black, "BN1"));
-        PieceData.getPieceList().add(new Pawn("\u265F", "Black Pawn", Player.black, "BP0"));
-        PieceData.getPieceList().add(new Pawn("\u265F", "Black Pawn", Player.black, "BP1"));
-        PieceData.getPieceList().add(new Pawn("\u265F", "Black Pawn", Player.black, "BP2"));
-        PieceData.getPieceList().add(new Pawn("\u265F", "Black Pawn", Player.black, "BP3"));
-        PieceData.getPieceList().add(new Pawn("\u265F", "Black Pawn", Player.black, "BP4"));
-        PieceData.getPieceList().add(new Pawn("\u265F", "Black Pawn", Player.black, "BP5"));
-        PieceData.getPieceList().add(new Pawn("\u265F", "Black Pawn", Player.black, "BP6"));
-        PieceData.getPieceList().add(new Pawn("\u265F", "Black Pawn", Player.black, "BP7"));
+        PieceData.getPieceList().add(new King("k", "Black King", Player.black, "BK0")); // "\u265A"
+        PieceData.getPieceList().add(new Queen("q", "Black Queen", Player.black, "BQ0")); // "\u265B"
+        PieceData.getPieceList().add(new Rook("r", "Black Rook", Player.black, "BR0")); // "\u265C"
+        PieceData.getPieceList().add(new Rook("r", "Black Rook", Player.black, "BR1")); // "\u265C"
+        PieceData.getPieceList().add(new Bishop("b", "Black Bishop", Player.black, "BB0")); // "\u265D"
+        PieceData.getPieceList().add(new Bishop("b", "Black Bishop", Player.black, "BB1")); // "\u265D"
+        PieceData.getPieceList().add(new Knight("n", "Black Knight", Player.black, "BN0")); // "\u265E"
+        PieceData.getPieceList().add(new Knight("n", "Black Knight", Player.black, "BN1")); // "\u265E"
+        PieceData.getPieceList().add(new Pawn("p", "Black Pawn", Player.black, "BP0")); // "\u265F"
+        PieceData.getPieceList().add(new Pawn("p", "Black Pawn", Player.black, "BP1")); // "\u265F"
+        PieceData.getPieceList().add(new Pawn("p", "Black Pawn", Player.black, "BP2")); // "\u265F"
+        PieceData.getPieceList().add(new Pawn("p", "Black Pawn", Player.black, "BP3")); // "\u265F"
+        PieceData.getPieceList().add(new Pawn("p", "Black Pawn", Player.black, "BP4")); // "\u265F"
+        PieceData.getPieceList().add(new Pawn("p", "Black Pawn", Player.black, "BP5")); // "\u265F"
+        PieceData.getPieceList().add(new Pawn("p", "Black Pawn", Player.black, "BP6")); // "\u265F"
+        PieceData.getPieceList().add(new Pawn("p", "Black Pawn", Player.black, "BP7")); // "\u265F"
 
         var board = Fields.getFields();
         try {
@@ -192,20 +192,23 @@ public class Renderer {
     public void drawList() {
         for(short i=0; i<PieceData.getPieceList().size(); i++) {
             var piece = PieceData.getPieceList().get(i);
+            System.out.print("ID: ");
             System.out.print(piece.getId());
-            System.out.print(", ");
+            System.out.print(", Character: ");
             System.out.print(piece.getCharacterDisplay());
-            System.out.print(", ");
+            System.out.print(", Name: ");
+            System.out.print(piece.getDisplayName());
+            System.out.print(", Team: ");
             System.out.print(piece.getTeamColor());
-            System.out.print(", ");
+            System.out.print(", X: ");
             System.out.print(piece.getX());
-            System.out.print(", ");
+            System.out.print(", Y: ");
             System.out.print(piece.getY());
-            System.out.print(", ");
+            System.out.print(", Class: ");
             System.out.print(piece.getClass());
-            System.out.print(", ");
+            System.out.print(", i: ");
             System.out.print(i);
-            System.out.print(", ");
+            System.out.print(", ListSize: ");
             System.out.print(PieceData.getPieceList().size());
             System.out.println();
         }
@@ -213,13 +216,30 @@ public class Renderer {
 
     public void drawSearchEngine(String data) {
         try {
-            var displayPiece = PieceData.getPieceFromListByItsName(data);
-            System.out.println(displayPiece);
-            System.out.println(displayPiece.getDisplayName());
-            System.out.println(displayPiece.getX());
-            System.out.println(displayPiece.getY());
-            System.out.println(displayPiece.getId());
-            System.out.println(displayPiece.getTeamColor());
+            for(short i=0; i<PieceData.getPieceList().size(); i++) {
+                if(PieceData.getPieceList().get(i).getDisplayName().equals(data)) {
+                    var piece = PieceData.getPieceList().get(i);
+                    System.out.print("ID: ");
+                    System.out.print(piece.getId());
+                    System.out.print(", Character: ");
+                    System.out.print(piece.getCharacterDisplay());
+                    System.out.print(", Name: ");
+                    System.out.print(piece.getDisplayName());
+                    System.out.print(", Team: ");
+                    System.out.print(piece.getTeamColor());
+                    System.out.print(", X: ");
+                    System.out.print(piece.getX());
+                    System.out.print(", Y: ");
+                    System.out.print(piece.getY());
+                    System.out.print(", Class: ");
+                    System.out.print(piece.getClass());
+                    System.out.print(", i: ");
+                    System.out.print(i);
+                    System.out.print(", ListSize: ");
+                    System.out.print(PieceData.getPieceList().size());
+                    System.out.println();
+                }
+            }
         } catch(Exception ex) {
             ex.printStackTrace();
         }

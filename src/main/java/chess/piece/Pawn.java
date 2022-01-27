@@ -17,6 +17,7 @@ public class Pawn extends Piece implements IPiece {
     public void getPossiblePaths() {
         var i = SelectedPiece.getSelectedPiece().getX();
         var j = SelectedPiece.getSelectedPiece().getY();
+        var board = Fields.getFields();
 
         if(PlayerTurn.getCurrentPlayer() == Player.white) {
             // sprawdzam tylko pole przed pionem
@@ -27,10 +28,30 @@ public class Pawn extends Piece implements IPiece {
                         PossibleMoves.addPossiblePosition(i + 2, j);
                     }
                 }
+                if(PossibleMoves.checkCaptures(i+1, j-1) && i >= 0 && i <= 7 && j >= 0 && j <=0) {
+                    if(board[i+1][j-1].getOccupiedPieceReference().getTeamColor() != PlayerTurn.getCurrentPlayer()) {
+                        PossibleMoves.addPossibleCapture(i + 1, j - 1);
+                    }
+                }
+                if(PossibleMoves.checkCaptures(i+1, j+1) && i >= 0 && i <= 7 && j >= 0 && j <=0) {
+                    if(board[i+1][j+1].getOccupiedPieceReference().getTeamColor() != PlayerTurn.getCurrentPlayer()) {
+                        PossibleMoves.addPossibleCapture(i + 1, j + 1);
+                    }
+                }
             }
                 else {
                     if (!PossibleMoves.checkColliders(i + 1, j)) {
                         PossibleMoves.addPossiblePosition(i + 1, j);
+                    }
+                    if(PossibleMoves.checkCaptures(i+1, j-1) && i >= 0 && i <= 7 && j >= 0 && j <=0) {
+                        if(board[i+1][j-1].getOccupiedPieceReference().getTeamColor() != PlayerTurn.getCurrentPlayer()) {
+                            PossibleMoves.addPossibleCapture(i + 1, j - 1);
+                        }
+                    }
+                    if(PossibleMoves.checkCaptures(i+1, j+1) && i >= 0 && i <= 7 && j >= 0 && j <=0) {
+                        if(board[i+1][j+1].getOccupiedPieceReference().getTeamColor() != PlayerTurn.getCurrentPlayer()) {
+                            PossibleMoves.addPossibleCapture(i + 1, j + 1);
+                        }
                     }
                 }
         } else {
@@ -41,18 +62,33 @@ public class Pawn extends Piece implements IPiece {
                         PossibleMoves.addPossiblePosition(i - 2, j);
                     }
                 }
+                if(PossibleMoves.checkCaptures(i-1, j-1) && i >= 0 && i <= 7 && j >= 0 && j <=0) {
+                    if(board[i-1][j-1].getOccupiedPieceReference().getTeamColor() != PlayerTurn.getCurrentPlayer()) {
+                        PossibleMoves.addPossibleCapture(i - 1, j - 1);
+                    }
+                }
+                if(PossibleMoves.checkCaptures(i-1, j+1) && i >= 0 && i <= 7 && j >= 0 && j <=0) {
+                    if(board[i-1][j+1].getOccupiedPieceReference().getTeamColor() != PlayerTurn.getCurrentPlayer()) {
+                        PossibleMoves.addPossibleCapture(i - 1, j + 1);
+                    }
+                }
             }
             else {
                 if (!PossibleMoves.checkColliders(i - 1, j)) {
                     PossibleMoves.addPossiblePosition(i - 1, j);
                 }
+                if(PossibleMoves.checkCaptures(i-1, j-1) && i >= 0 && i <= 7 && j >= 0 && j <=0) {
+                    if(board[i-1][j-1].getOccupiedPieceReference().getTeamColor() != PlayerTurn.getCurrentPlayer()) {
+                        PossibleMoves.addPossibleCapture(i - 1, j - 1);
+                    }
+                }
+                if(PossibleMoves.checkCaptures(i-1, j+1) && i >= 0 && i <= 7 && j >= 0 && j <=0) {
+                    if(board[i-1][j+1].getOccupiedPieceReference().getTeamColor() != PlayerTurn.getCurrentPlayer()) {
+                        PossibleMoves.addPossibleCapture(i - 1, j + 1);
+                    }
+                }
             }
         }
-    }
-
-    @Override
-    public void getPossibleCaptures() {
-
     }
 
     public boolean isFirstMove() {

@@ -31,7 +31,7 @@ public class Key implements NativeKeyListener {
 
 
         if(DisplayContent.GetRendererDisplayType() == RendererDisplayType.Search) {
-            if(nativeEvent.getKeyCode() == NativeKeyEvent.VC_ALT) {
+            if(nativeEvent.getKeyCode() == NativeKeyEvent.VC_CONTROL) {
                 DisplayContent.SetRendererDisplayType(RendererDisplayType.Chess);
             }
             return;
@@ -64,6 +64,7 @@ public class Key implements NativeKeyListener {
             case NativeKeyEvent.VC_SHIFT:
                 SelectedPiece.setSelectedPiece(null);
                 PossibleMoves.clearPossiblePositions();
+                PossibleMoves.clearPossibleCaptures();
                 break;
             case NativeKeyEvent.VC_L:
                 DisplayContent.SetRendererDisplayType(RendererDisplayType.List);
@@ -71,7 +72,7 @@ public class Key implements NativeKeyListener {
             case NativeKeyEvent.VC_P:
                 DisplayContent.SetRendererDisplayType(RendererDisplayType.Chess);
                 break;
-            case NativeKeyEvent.VC_ALT:
+            case NativeKeyEvent.VC_CONTROL:
                 DisplayContent.SetRendererDisplayType(RendererDisplayType.Search);
                 break;
         }

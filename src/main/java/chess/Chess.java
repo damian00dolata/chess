@@ -43,7 +43,7 @@ public class Chess {
                 case Chess:
                     renderer.clear();
                     renderer.draw();
-                    Thread.sleep(1000);
+                    Thread.sleep(250);
                     break;
                 case List:
                     renderer.clear();
@@ -51,7 +51,7 @@ public class Chess {
                     Thread.sleep(10000);
                     break;
                 case Search:
-                    System.out.print("Pdoaj pion: ");
+                    System.out.print("Podaj pion: ");
                     String data = sc.nextLine();
                     renderer.drawSearchEngine(data);
                     break;

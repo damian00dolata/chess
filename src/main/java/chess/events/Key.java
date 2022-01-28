@@ -4,10 +4,8 @@ import chess.board.Fields;
 import chess.enums.Directions;
 import chess.enums.RendererDisplayType;
 import chess.movement.Movement;
-import chess.playerdata.CursorPosition;
-import chess.playerdata.DisplayContent;
-import chess.playerdata.PossibleMoves;
-import chess.playerdata.SelectedPiece;
+import chess.piece.PieceData;
+import chess.playerdata.*;
 import com.github.kwhat.jnativehook.GlobalScreen;
 import com.github.kwhat.jnativehook.NativeHookException;
 import com.github.kwhat.jnativehook.NativeInputEvent;
@@ -58,7 +56,15 @@ public class Key implements NativeKeyListener {
                 if(SelectedPiece.getSelectedPiece() == null) {
                     Movement.selectPiece();
                 } else {
-                    Movement.move(CursorPosition.getCurrentPos().getX(), CursorPosition.getCurrentPos().getY());
+                    var board = Fields.getFields();
+                    var cursorPos = CursorPosition.getCurrentPos();
+                    var testedCase = board[cursorPos.getX()][cursorPos.getY()];
+                    if(testedCase.isOccupied() && testedCase.getOccupiedPieceReference().getTeamColor() != PlayerTurn.getCurrentPlayer()) {
+                        Movement.capture(CursorPosition.getCurrentPos().getX(), CursorPosition.getCurrentPos().getY());
+                    } else {
+                        Movement.move(CursorPosition.getCurrentPos().getX(), CursorPosition.getCurrentPos().getY());
+                    }
+
                 }
                 break;
             case NativeKeyEvent.VC_SHIFT:

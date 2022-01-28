@@ -27,7 +27,7 @@ public class Fields {
         return  fields;
     }
 
-    public static void SetFields(Field[][] newFields) {
+    public static void setFields(Field[][] newFields) {
         fields = newFields;
     }
 }

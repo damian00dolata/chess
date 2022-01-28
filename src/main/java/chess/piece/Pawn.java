@@ -20,7 +20,6 @@ public class Pawn extends Piece implements IPiece {
         var board = Fields.getFields();
 
         if(PlayerTurn.getCurrentPlayer() == Player.white) {
-            // sprawdzam tylko pole przed pionem
             if(firstMove) {
                 if (!PossibleMoves.checkColliders(i + 1, j)) {
                     PossibleMoves.addPossiblePosition(i + 1, j);
@@ -79,10 +78,6 @@ public class Pawn extends Piece implements IPiece {
                 }
             }
         }
-    }
-
-    public boolean isFirstMove() {
-        return firstMove;
     }
 
     public void setFirstMove(boolean firstMove) {

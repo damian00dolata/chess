@@ -39,7 +39,7 @@ public class Chess {
         Scanner sc = new Scanner(System.in);
 
         while(true) {
-            switch (DisplayContent.GetRendererDisplayType()) {
+            switch (DisplayContent.getRendererDisplayType()) {
                 case Chess:
                     renderer.clear();
                     renderer.draw();

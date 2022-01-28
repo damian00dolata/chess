@@ -28,9 +28,9 @@ public class Key implements NativeKeyListener {
 
 
 
-        if(DisplayContent.GetRendererDisplayType() == RendererDisplayType.Search) {
+        if(DisplayContent.getRendererDisplayType() == RendererDisplayType.Search) {
             if(nativeEvent.getKeyCode() == NativeKeyEvent.VC_CONTROL) {
-                DisplayContent.SetRendererDisplayType(RendererDisplayType.Chess);
+                DisplayContent.setRendererDisplayType(RendererDisplayType.Chess);
             }
             return;
         }
@@ -73,13 +73,13 @@ public class Key implements NativeKeyListener {
                 PossibleMoves.clearPossibleCaptures();
                 break;
             case NativeKeyEvent.VC_L:
-                DisplayContent.SetRendererDisplayType(RendererDisplayType.List);
+                DisplayContent.setRendererDisplayType(RendererDisplayType.List);
                 break;
             case NativeKeyEvent.VC_P:
-                DisplayContent.SetRendererDisplayType(RendererDisplayType.Chess);
+                DisplayContent.setRendererDisplayType(RendererDisplayType.Chess);
                 break;
             case NativeKeyEvent.VC_CONTROL:
-                DisplayContent.SetRendererDisplayType(RendererDisplayType.Search);
+                DisplayContent.setRendererDisplayType(RendererDisplayType.Search);
                 break;
         }
     }

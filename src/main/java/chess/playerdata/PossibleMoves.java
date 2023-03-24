@@ -72,10 +72,6 @@ public final class PossibleMoves {
     public static boolean checkCaptures(int i, int j) {
         var board = Fields.getFields();
 
-        System.out.println("elo");
-        System.out.println(i);
-        System.out.println(j);
-
         Boolean isOutOfBounds = false;
 
         if(j > 7 || i > 7 || j < 0 || i < 0) {

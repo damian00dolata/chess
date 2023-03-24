@@ -1,5 +1,4 @@
 # Chess
-Chess project
 
 1. Legenda i skróty klawiszowe
 

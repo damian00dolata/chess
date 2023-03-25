@@ -1,37 +1,18 @@
 # Chess
 
-1. Legenda i skróty klawiszowe
+1. Legend and hotkeys
 
-* Dwie drużyny, rozróżnione wielkością litery figur (K/k - king, Q/q - queen, R/r - rook, N/n -
-knight, B/b - bishop, P/p - pawn),
-* ←↑→↓ - poruszanie się po planszy,
-* p - widok rozgrywki,
-* l - widok listy obiektów,
-* Ctrl - widok wyszukiwania obiektów z podaną nazwą (wychodzimy z niego przez podanie Ctrl na input
-i wciśnięcie Enter),
-* Shift - odznaczenie figury,
-* Enter - wybranie figury, ruch, bicie.
+* **Two teams distinguished by the letter case** (**K/k** - king, **Q/q** - queen, **R/r** - rook, **N/n** -
+knight, **B/b** - bishop, **P/p** - pawn),
+* **←↑→↓** - movement on the board,
+* **p** - game view,
+* **l** - list of objects view,
+* **Ctrl** - searching object by name view (Ctrl and then Enter to exit),
+* **Shift** - unmark the piece,
+* **Enter** - selecting piece, movement, capturing.
 
-2. Funkcjonalność
+2. Functionality
 
-Projekt obejmuje funkcjonalności gry w szachy. Plansza jest ”odświeżana” co ułamek sekundy poprzez printowanie
-jej w konsoli. Do dyspozycji mamy trzy widoki - rozgrywka, lista obiektów, wyszukiwanie obiektu po
-nazwie. Zaimplementowany został Key Listener, w celu ułatwienia poruszania się po planszy. Zczytuje on kod
-klawisza aktualnie wciskanego oraz następnie puszczanego. Widok wyświetlania listy obiektów jest ”odświeżany”
-co 10 sekund, więc trzeba poczekać na zmianę go na rozgrywkę. Kursor jest koloru niebieskiego, możliwe ruchy
-koloru zielonego z literką P, a możliwe bicia koloru czerwonego z literką C.
-Przy uzupełnianiu planszy wywoływana jest funkcja tworząca nowy obiekt o różnym podtypie. Przy wyświetlaniu
-planszy wyświetlane są wszystkie zapamiętane obiekty z rozróżnieniem na te danego podtypu. Przy
-biciu wywoływana jest funkcja usuwająca obiekt, odpowiadający za bitą figurę. Przykładem operacji zawartej
-w interfejsie w klasach, które go implementują jest metoda getPossiblePaths(). Przy napotkaniu błędu, np. nie
-znalezieniu figury, wyświetlany jest odpowiedni komunikat lub drzewko błędu - założone zostało, że obsługa
-wyjątków powinna być ukazana.
-Wprojekcie znajdziemy klasę abstrakcyjną Piece, oraz rozszerzające ją podklasy figur (King, Rook, Pawn...).
-Figury implementują interfejs IPiece. Przykładem metody statycznej jest metoda move(), a przykładem statycznego
-pola jest pole fields. Klasa Piece wykorzystuje numeryczny identyfikator oraz zawiera m. in. nazwę.
-Rozszerzanie podklas figur o conajmniej jedno pole było niemożliwe, z powodu posiadania przez wszystkie figury
-tych samych cech, narzuconych przez grę w szachy. Klasy zawierają publiczne konstruktory, ustawiające wszystkie
-właściwości tworzonego obiektu. Wszystkie pliki znajdują się w pakiecie nazwanym Chess, który zawiera
-podpakiety.
-W projekcie nie zostały zaimplementowane wszystkie reguły gry szachów, jednak znajdziemy tu np. pierwszy
-ruch piona o dwa pola, czy brak możliwości zbicia króla drugim królem.
+Project includes functionalities of chess game. The board is up to date by printing it in the console. Movement and changing views is implemented through a Key Listener. The list of objects view is up to date every 10 seconds. The cursor is **blue**, possible moves are **green** with letter P and possible captures are **red** with letter C.
+
+There are few missing features, but elements like pawn first move and impossibility to capture a king with a king are included.
